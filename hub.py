@@ -9,8 +9,8 @@ import random_code
 import os
 bksjw='http://bksjw.hust.edu.cn/'
 hub='http://hub.hust.edu.cn/'
-uname='U201213017'
-pwd='xiao2shagrl,.22'
+uname='U201214878'
+pwd='hust5567398'
 #=httplib2.Http(proxy_info=httplib2.ProxyInfo(proxy_type=httplib2.socks.PROXY_TYPE_HTTP_NO_TUNNEL, proxy_host='192.168.124.1', proxy_port=23300))
 h=httplib2.Http()
 h.follow_redirects = False
