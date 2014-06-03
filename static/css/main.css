@@ -1,0 +1,230 @@
+.clearfix:after {
+	content: "";
+	clear: both;
+	width: 0;
+	height: 0;
+	line-height: 0;
+}
+
+body, img, form, input, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	width: 1280px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.body-wr {
+	display: table;
+	float: left;
+	position: relative;
+	width: 500px;
+	height: 100%;
+	background-color: #444444;
+}
+
+.flesh {
+	width: 150px;
+	height: 510px;	
+	display: table-cell;
+	vertical-align: middle;
+	background: url("../image/flesh-male.png") center center no-repeat;
+}
+
+.flesh img {
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.face {
+	margin-top: -220px;
+}
+
+.hair {
+	margin-top: -265px;
+}
+
+.glass {
+	margin-top: -210px;
+}
+
+.suit {
+	margin-top: -150px;
+}
+
+.shoes {
+	margin-top: 245px;
+}
+
+.prop {
+	display: none;
+}
+
+.right-select-wr {
+	float: left;
+	display: table;
+	width: 545px;
+	height: 100%;
+	margin-left: 175px;
+}
+
+.user-select {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.styles {
+	width: 100%;
+	height: 75px;
+	margin-bottom: 5px;
+}
+
+.styles:after {
+	content: "";
+	width: 0;
+	height: 0;
+	clear: both;
+}
+
+.block {
+	width: 75px;
+	height: 75px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.type {
+	float: left;
+	background-color: #444444;
+	color: #FFFFFF;
+	font: 24px/75px "Microsoft Yahei";
+	text-align: center;
+}
+
+.slide {
+	float: left;
+	width: 425px;
+	height: 100%;
+	margin-left: 45px;
+}
+
+.arrow-left {
+	float: left;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: #EEEEEE;
+	margin-top: 17px;
+	cursor: pointer;
+}
+
+.arrow-left:active, .arrow-left.disabled {
+	border-right-color: #CCCCCC;
+}
+
+.arrow-right {
+	float: left;
+	width: 0;
+	height: 0;
+	border: 20px solid #FFFFFF;
+	border-left-color: #EEEEEE;
+	margin-top: 17px;
+	cursor: pointer;
+}
+
+.arrow-right:active, .arrow-right.disabled {
+	border-left-color: #CCCCCC;
+}
+
+.items-wr {
+	float: left;
+	width: 315px;
+	margin: 0 15px;
+}
+
+.item {
+	display: inline-block;
+	background-color: #EEEEEE;
+	margin: 0 5px 0 0;
+}
+
+.item:last-child {
+	margin-right: 0;
+}
+
+.ok-button {
+	display: block;
+	width: 90px;
+	height: 90px;
+	margin: 20px auto;
+	background-image: url("../image/ok-button.png");
+	background-position: -10px -10px;
+	text-indent: -999em;
+	cursor: pointer;
+}
+
+.ok-button:active {
+	background-position: -10px -103px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@ import hub
 import requests
 import re
 
-#hub.auth()
+hub.auth()
 s = requests.Session()
 hubHeader = hub.header_yay
 

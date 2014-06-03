@@ -1,0 +1,238 @@
+.clearfix:after {
+	content: "";
+	clear: both;
+	width: 0;
+	height: 0;
+	line-height: 0;
+}
+
+body, img, form, input, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#log-page {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	min-width: 980px;
+	overflow: hidden;
+}
+
+#log-page-bg {
+	width: 100%;
+	height: 100%;
+	background-color: #ACD8D9;
+}
+
+.cloud {
+	position: absolute;
+	-webkit-animation: move 120s linear infinite;
+	-moz-animation: move 120s linear infinite;
+	-ms-animation: move 120s linear infinite;
+	-o-animation: move 120s linear infinite;
+	animation: move 120s linear infinite;	
+}
+
+.cloud:nth-of-type(1) {
+	width: 150px;
+	height: 45px;
+	top: 10%;
+	left: 70%;
+}
+
+.cloud:nth-of-type(2) {
+	width: 300px;
+	height: 90px;
+	top: 20%;
+	left: 50%;
+}
+
+.cloud:nth-of-type(3) {
+	width: 300px;
+	height: 90px;
+	top: 30%;
+	left: 80%;
+}
+
+.trees, .flowers-wr {
+	-webkit-transform-origin: left bottom;
+	-moz-transform-origin: left bottom;
+	-ms-transform-origin: left bottom;
+	-o-transform-origin: left bottom;
+	transform-origin: left bottom;
+}
+
+.house {
+	position: absolute;
+	right: 50px;
+	bottom: 13%;
+	width: 41.4%;
+}
+
+.trees {
+	position: absolute;
+	left: -2%;
+	bottom: 0;
+	width: 104%;
+	-webkit-animation: wind 6s linear infinite;
+	-moz-animation: wind 6s linear infinite;
+	-ms-animation: wind 6s linear infinite;
+	-o-animation: wind 6s linear infinite;
+	animation: wind 6s linear infinite;
+}
+
+.flowers-wr {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	background: url("../image/flower.png") repeat-x;
+	-webkit-animation: wind2 6s linear infinite;
+	-moz-animation: wind2 6s linear infinite;
+	-ms-animation: wind2 6s linear infinite;
+	-o-animation: wind2 6s linear infinite;
+	animation: wind2 6s linear infinite;	
+}
+
+.flower {
+	display: none;
+}
+
+.chick {
+	position: absolute;
+	left: 8%;
+	bottom: 0;
+	width: 15%;
+}
+
+.chick div {
+	display: none;
+}
+
+form {
+	position: absolute;
+	left: 8%;
+	top: 220px;
+	width: 440px;
+	height: 200px;
+}
+
+label {
+	display: block;
+	margin-bottom: 30px;
+}
+
+label span {
+	float: left;
+	color: #000000;
+	line-height: 48px;
+	font-family: "Microsoft Yahei";
+	font-size: 28px;
+}
+
+label input {
+	display: block;
+	width: 308px;
+	height: 34px;
+	padding: 6px 5px;
+	border: 1px solid #eeeeee;
+	margin-left: 115px;
+	background-color: #FFFFFF;
+	line-height: 36px;
+	font-family: "Microsoft Yahei";
+	font-size: 28px;
+}
+
+#form-buttons-wr {
+	margin-left: 115px;
+}
+
+#form-buttons-wr a {
+	float: left;
+	width: 137px;
+	height: 50px;
+	background-image: url("../image/form-buttons.png");
+	line-height: 50px;
+	text-indent: -999em;
+	text-align: center;
+	color: transparent;
+	font-size: 36px;
+}
+
+a.submit {
+	background-position: -10px -70px;
+}
+
+a.submit:active {
+	background-position: -5px -180px;
+}
+
+a.reset {
+	margin-left: 45px;
+	background-position: -10px -10px;
+}
+
+a.reset:active {
+	background-position: -5px -125px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

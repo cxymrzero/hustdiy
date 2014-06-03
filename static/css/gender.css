@@ -1,0 +1,82 @@
+.clearfix {
+	zoom: 1;
+}
+
+.clearfix:after {
+	content: "";
+	width: 0;
+	height: 0;
+	clear: both;
+}
+
+.container {
+	width: 420px;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	margin-left: -210px;
+}
+
+h1 {
+	width: 268px;
+	height: 44px;
+	margin: 0 auto 55px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #94BB1F;
+	text-align: center;
+	color: #FFFFFF;
+	font: 30px/44px "Microsoft Yahei";
+}
+
+.buttons-wr {
+	width: 100%;
+	overflow: hidden;
+}
+
+.buttons {
+	width: 180px;
+	height: 190px;
+	text-indent: -999em;
+	background-image: url("../image/gender-buttons.png");
+}
+
+.buttons:first-child {
+	float: left;
+	background-position: -10px -208px;
+}
+
+.buttons:first-child:active {
+	background-position: -10px -396px;
+}
+
+.buttons:last-child {
+	float: right;
+	background-position: -10px -10px;
+}
+
+.buttons:last-child:active {
+	background-position: -10px -586px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

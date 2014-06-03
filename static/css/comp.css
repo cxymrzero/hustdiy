@@ -1,0 +1,242 @@
+html, body, img, form, input, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.clearfix:after {
+	content: "";
+	width: 0;
+	height: 0;
+	clear: both;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	display: table;
+	background-color: #444444;
+}
+
+.container {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.wraper {
+	width: 680px;
+	margin: 0 auto;
+}
+
+.portrait {
+	float: left;
+	width: 155px;
+	height: 570px;
+}
+
+.right {
+	float: left;
+	width: 430px;
+	height: 570px;
+	margin-left: 90px;
+}
+
+.items-wr {
+	padding-top: 60px;
+}
+
+.form-item {
+	padding-left: 30px;
+	margin-bottom: 35px;
+	font-size: 25px;
+	color: #FFFFFF;
+}
+
+.form-item:after {
+	content: "";
+	width: 0;
+	height: 0;
+	display: block;
+	clear: both;
+}
+
+.form-item:last-child {
+	margin-bottom: 25px;
+}
+
+.name {
+	position: relative;
+	float: left;
+	padding-left: 40px;
+}
+
+.name:before {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: -30px;
+	background-image: url("../image/all-icons.png");
+}
+
+.form-item:nth-of-type(1) .name:before {
+	background-position: -10px -77px;
+}
+
+.form-item:nth-of-type(2) .name:before {
+	background-position: -10px -10px;
+}
+
+.form-item:nth-of-type(3) .name:before {
+	background-position: -10px -205px;
+}
+
+.form-item:nth-of-type(4) .name:before {
+	background-position: -10px -174px;
+}
+
+.form-item:nth-of-type(5) .name:before {
+	background-position: -10px -44px;
+}
+
+.form-item:nth-of-type(6) .name:before {
+	background-position: -10px -142px;
+}
+
+.form-item:nth-of-type(7) .name:before {
+	background-position: -10px -110px;
+}
+
+.value {
+	float: left;
+}
+
+.star {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
+	background-image: url("../image/star.png");
+	background-position: -10px -10px;
+}
+
+.star.get {
+	background-position: -10px -43px;
+}
+
+a.submit {
+	display: block;
+	position: absolute;
+	top: 450px;
+	left: 50%;
+	width: 90px;
+	height: 90px;
+	margin-left: -45px;
+	text-indent: -999em;
+	background-image: url("../image/msg-submit-button.png");
+	background-position: -10px -10px;
+}
+
+a.submit:active {
+	background-position: -10px -108px;
+}
+
+.share-wr {
+	margin-top: 50px;
+}
+
+.share-wr span {
+	margin-right: 8px;
+	font: 18px/60px "Microsoft Yahei";
+	color: #FFFFFF;
+	vertical-align: middle;
+}
+
+.share-buttons-wr {
+	display: inline-block;
+}
+
+a.share-buttons {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	margin-right: 8px;
+	background-image: url("../image/share-icons.png");
+	vertical-align: middle;
+	text-indent: -999em;
+}
+
+.share-buttons:nth-of-type(1) {
+	background-position: -10px -211px;
+}
+
+.share-buttons:nth-of-type(1):active {
+	background-position: -10px -537px;
+}
+
+.share-buttons:nth-of-type(2) {
+	background-position: -10px -144px;
+}
+
+.share-buttons:nth-of-type(2):active {
+	background-position: -10px -472px;
+}
+
+.share-buttons:nth-of-type(3) {
+	background-position: -10px -278px;
+}
+
+.share-buttons:nth-of-type(3):active {
+	background-position: -10px -602px;
+}
+
+.share-buttons:nth-of-type(4) {
+	background-position: -10px -77px;
+}
+
+.share-buttons:nth-of-type(4):active {
+	background-position: -10px -407px;
+}
+
+.share-buttons:nth-of-type(5) {
+	background-position: -10px -10px;
+}
+
+.share-buttons:nth-of-type(5):active {
+	background-position: -10px -342px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

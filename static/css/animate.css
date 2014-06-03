@@ -1,0 +1,51 @@
+@-webkit-keyframes wind {
+	10%{
+		-webkit-transform: skew(5deg);
+	} 12%{
+		-webkit-transform: skew(4.5deg);
+	} 18%{
+		-webkit-transform: skew(5.2deg);
+	} 20%{
+		-webkit-transform: skew(4.8deg);
+	} 25%{
+		-webkit-transform: skew(5.1deg);
+	} 28%{
+		-webkit-transform: skew(4.9deg);
+	} 32%{
+		-webkit-transform: skew(5deg);
+	} 35%{
+		-webkit-transform: skew(4.5deg);
+	} 40%{
+		-webkit-transform: skew(2deg);
+	} 50%{
+		-webkit-transform: skew(0deg);
+	}
+}
+
+@-webkit-keyframes wind2 {
+	8%{
+		-webkit-transform: skew(20deg);
+	} 22%{
+		-webkit-transform: skew(19deg);
+	} 24%{
+		-webkit-transform: skew(20deg);
+	} 26%{
+		-webkit-transform: skew(19deg);
+	} 28%{
+		-webkit-transform: skew(20deg);
+	} 32%{
+		-webkit-transform: skew(19deg);
+	} 35%{
+		-webkit-transform: skew(20deg);
+	} 40%{
+		-webkit-transform: skew(8deg);
+	}
+}
+
+@-webkit-keyframes move {
+	0% {
+		-webkit-transform: translateX(0);
+	} 100% {
+		-webkit-transform: translateX(-1000px);
+	}
+}
