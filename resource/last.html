@@ -1,3 +1,5 @@
+$def with (eat, major)
+
 <!doctype html>
 <html>
 <head>
@@ -21,13 +23,18 @@
 				<div class="descriptions" id="love">
 					<img src="static/image/titles/love-title.png" alt="桃花指数" class="titles">
 					<div class="content">
-						<div class="word">阿萨德飞南京</div>
-						<div class="stars">
+						<div class="word">$eat</div>
+						<div class="stars"><!--
 							<span class="star solid"></span>
 							<span class="star solid"></span>
 							<span class="star"></span>
 							<span class="star"></span>
-							<span class="star"></span>
+							<span class="star"></span> 
+							-->
+							$for i in range(int(eat)):
+								<span class="star solid"></span>
+							$for i in range(5-int(eat)):
+								<span class="star"></span>
 						</div>
 					</div>
 				</div>

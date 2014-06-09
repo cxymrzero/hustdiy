@@ -19,8 +19,9 @@ urls = (
     '/msg', 'msg',
     '/gender', 'gender',
     '/main', 'main',
-    '/femain', 'femain'
+    '/femain', 'femain',
 #    '/getPic', 'getPic'
+    '/last', 'last'
 )
 
 render = web.template.render('resource')
@@ -250,8 +251,23 @@ class msg:
 #        return 
         #session = getSession()
         #print session.uid
-        print web.ctx.session.uid
-        return
+        print session.uid
+        myvar = dict(uid = session.uid)
+        results = db.select('stu_info_2', myvar, where="id=$uid")
+        if not results:
+            db.insert('stu_info_2', id=session.uid, live=i.place, eat=i.cantin, love=i.love, org=i.org)
+        return web.seeother('/last')
+
+class last:
+    def GET(self):
+        myvar = dict(uid=session.uid)
+        r1 = db.select('stu_info_1', myvar, where="id=$uid")
+        r2 = db.select('stu_info_2', myvar, where="id=$uid")
+        #print results1[0].major
+        major = r1[0].major
+        eat = r2[0].eat
+        print eat
+        return render.last(major, eat)
 
 if __name__ == '__main__':
     app.run()
