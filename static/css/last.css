@@ -1,0 +1,252 @@
+html, body, img, h1 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	width: 100%;
+	background-color: #afb263;
+	font-family: "Microsoft JhengHei, Microsoft Yahei";
+}
+
+.wrapper {
+	position: relative;
+	width: 730px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #DDE186;
+	-webkit-box-shadow: 0 0 100px #777;
+	-moz-box-shadow: 0 0 100px #777;
+	box-shadow: 0 0 100px #777;
+	overflow: hidden;
+}
+
+.wrapper:before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 720px;
+	right: 20px;
+	top: 20px;
+	bottom: 20px;
+	background-image: url("../image/landscape-line.png"), url("../image/portrait-line.png"), url("../image/landscape-line.png");
+	background-position: top left, top right, bottom left;
+	background-repeat: no-repeat, repeat-y, no-repeat;
+}
+
+.wrapper:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 20px;
+	right: 720px;
+	top: 20px;
+	bottom: 20px;
+	background-image: url("../image/landscape-line.png"), url("../image/portrait-line.png"), url("../image/landscape-line.png");
+	background-position: top left, top left, bottom left;
+	background-repeat: no-repeat, repeat-y, no-repeat;
+}
+
+
+h1 {
+	margin: 70px 0 0 85px;
+	font-size: 40px;
+	color: #FFFFFF;
+}
+
+h1:after {
+	content: url("../image/plane.png");
+	display: inline-block;
+	margin-left: 25px;
+	position: relative;
+	top: 15px;
+}
+
+h1 span {
+	font-size: 1.25em;
+}
+
+.img-wr {
+	margin-top: 60px;
+	position: relative;
+}
+
+.appearance {
+	display: block;
+	margin: 60px auto 0;
+}
+
+.descriptions {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+.content {
+	font-size: 0;
+	margin-top: 30px;
+	margin-left: 50px;
+}
+
+.stars {
+	margin-top: 5px;
+}
+
+.star {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url("../image/hollow-star.png");
+	background-repeat: no-repeat;
+}
+
+.star.solid {
+	background-image: url("../image/solid-star.png");
+}
+
+.content .word {
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+#study-lord .content {
+	margin-left: 136px;
+}
+
+#love .content {
+	margin-left: 106px;
+}
+
+#sociaty .content {
+	margin-left: 116px;
+}
+
+#from .content {
+	margin-top: -30px;
+}
+
+#study-lord {
+	margin-left: 45px;
+	margin-top: -260px;
+}
+
+#love {
+	margin-left: 70px;
+	margin-top: -125px;
+}
+
+#sociaty {
+	margin-left: 65px;
+	margin-top: 57px;
+}
+
+#eater {
+	margin-left: -330px;
+	margin-top: -200px;
+}
+
+#international {
+	margin-left: -330px;
+	margin-top: -5px;
+}
+
+#from {
+	margin-left: -330px;
+	margin-top: 220px;
+}
+
+.share-wr {
+	float: right;
+	margin-right: 40px;
+	margin-bottom: 27px;
+	letter-spacing: 0;
+	word-spacing: 0;
+	font-size: 0;
+	vertical-align: bottom;
+}
+
+.share-wr {
+	margin-top: 35px;
+	color: #FFFFFF;
+}
+
+.share-wr span {
+	font: 16px/35px "Microsoft JhengHei, Microsoft Yahei";
+	vertical-align: bottom;
+}
+
+.share-wr a {
+	display: inline-block;
+	text-indent: -999em;
+	width: 35px;
+	height: 35px;
+	background-image: url("../image/share-icon.png");
+	margin: 0 2px;
+	vertical-align: bottom;
+}
+
+.share-wr a:nth-of-type(1) {
+	background-position: -10px -10px;
+}
+
+.share-wr a:nth-of-type(1):active {
+	background-position: -10px -53px;
+}
+
+.share-wr a:nth-of-type(2) {
+	background-position: -53px -10px;
+}
+
+.share-wr a:nth-of-type(2):active {
+	background-position: -53px -53px;
+}
+
+.share-wr a:nth-of-type(3) {
+	background-position: -96px -10px;
+}
+
+.share-wr a:nth-of-type(3):active {
+	background-position: -96px -53px;
+}
+
+.share-wr a:nth-of-type(4) {
+	background-position: -142px -10px;
+}
+
+.share-wr a:nth-of-type(4):active {
+	background-position: -142px -53px;
+}
+
+.share-wr a:nth-of-type(5) {
+	background-position: -187px -10px;
+}
+
+.share-wr a:nth-of-type(5):active {
+	background-position: -187px -53px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
