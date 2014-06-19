@@ -7,6 +7,7 @@ CREATE TABLE stu_info_1
     major varchar(255),
     grades int,
     cet int,
+    name varchar(255),
     PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 

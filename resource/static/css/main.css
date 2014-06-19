@@ -30,16 +30,20 @@ html, body {
 
 .body-wr {
 	float: left;
+	position: relative;
 	width: 500px;
 	height: 100%;
 	background-color: #444444;
 }
 
 .flesh {
+	position: absolute;
+	left: 50%;
+	top: 50%;
 	width: 150px;
 	height: 510px;	
-	margin: 0 auto;
-	position: relative;
+	margin-left: -75px;
+	margin-top: -255px;
 }
 
 .male {
@@ -54,6 +58,7 @@ html, body {
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	z-index: 2;
 	-webkit-transform: translateX(-50%) translateY(30px);
 	-moz-transform: translateX(-50%) translateY(30px);
 	-ms-transform: translateX(-50%) translateY(30px);
@@ -63,8 +68,8 @@ html, body {
 
 img.flesh-img {
 	left: -2px;
-	top: 0;
-	z-index: 0;
+	margin-top: -255px;
+	z-index: 1;
 	-webkit-transform: translateX(0);
 	-moz-transform: translateX(0);
 	-ms-transform: translateX(0);
@@ -85,7 +90,7 @@ img.flesh-img {
 }
 
 .suit {
-	margin-top: -150px;
+	margin-top: -151px;
 }
 
 .shoes {
@@ -93,8 +98,98 @@ img.flesh-img {
 }
 
 .prop {
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-left: 70px;
+}
+
+.prop.panel {
+	margin-top: -10px;
+}
+
+.prop.basketball {
+	margin-top: 200px;
+	margin-left: -120px;
+}
+
+.bag, .bag-belt {
+	margin-top: -152px;
+	margin-left: 0;
+}
+
+img.bag {
+	z-index: 0;
+}
+
+.color-1 {
+	background-color: #333333;
+}
+
+.color-1 .wrapper {
+	background-color: #444444;
+}
+
+.color-2 {
+	background-color: #003e3e;
+}
+
+.color-2 .wrapper {
+	background-color: #006666;
+}
+
+.color-3 {
+	background-color: #a37650;
+}
+
+.color-3 .wrapper {
+	background-color: #e7c19c;
+}
+
+.color-4 {
+	background-color: #8e799d;
+}
+
+.color-4 .wrapper {
+	background-color: #af9cbc;
+}
+
+.color-5 {
+	background-color: #66a3a4;
+}
+
+.color-5 .wrapper {
+	background-color: #8bc8c9;
+}
+
+.color-6 {
+	background-color: #4486a0;
+}
+
+.color-6 .wrapper {
+	background-color: #5baac8;
+}
+
+.color-7 {
+	background-color: #758c51;
+}
+
+.color-7 .wrapper {
+	background-color: #9bb27a;
+}
+
+.color-8 {
+	background-color: #8eb6a6;
+}
+
+.color-8 .wrapper {
+	background-color: #b7e0d0;
+}
+
+.color-9 {
+	background-color: #cab77b;
+}
+
+.color-9 .wrapper {
+	background-color: #ffefbf;
 }
 
 .right-select-wr {

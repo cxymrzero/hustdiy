@@ -9,6 +9,8 @@ import random_code
 import os
 bksjw='http://bksjw.hust.edu.cn/'
 hub='http://hub.hust.edu.cn/'
+uname='U201214862'
+pwd='jimchen012249'
 #=httplib2.Http(proxy_info=httplib2.ProxyInfo(proxy_type=httplib2.socks.PROXY_TYPE_HTTP_NO_TUNNEL, proxy_host='192.168.124.1', proxy_port=23300))
 h=httplib2.Http()
 h.follow_redirects = False
@@ -20,20 +22,24 @@ header_yay={'Connection':' keep-alive',
 'DNT':' 1',
 'Accept-Language':' zh-CN'}
 
-def new_login(uname, pwd):
+def new_login():
     #initial session
     resp,ct=h.request('{0}index.jsp'.format(bksjw),headers=header_yay)
+    print resp
     cookie=resp['set-cookie'].replace(' Path=/, ','').replace(' path=/','')+'usertype=xs'
     print('Session:\n%s'%cookie)
     header_yay.update({'Cookie':cookie})
+    header_yay.update({'Referer':'http://hub.hust.edu.cn/index.jsp'})
     #get index page
     h.request('{0}indexinfo'.format(bksjw),headers=header_yay)
     resp,ct=h.request('{0}index.jsp'.format(bksjw),headers=header_yay)
+    print resp
     servname=re.findall('app\d+.dc.hust.edu.cn',ct)[0]
     #get random key
     resp,ct=h.request('{0}randomKey.action?username={1}&time={2}'.format(
             bksjw,uname,'%d'%(time.time()*1000)
         ),headers=header_yay)
+    print resp
     key1,key2=json.loads(ct)
     #get random image
     resp,ct=h.request('{0}randomImage.action?k1={1}&k2={2}&uno={3}&time={4}'.format(
@@ -62,13 +68,13 @@ def new_login(uname, pwd):
         open('.saved_session','w').write(cookie)
         return cookie
 
-def auth(uname, pwd):
+def auth():
 #    if os.path.exists('.saved_session'):
 #        cookie=open('.saved_session').read()
 #        header_yay.update({'Cookie':cookie})
 #    else:
 #        cookie=new_login()
-    cookie = new_login(uname, pwd)
+    cookie = new_login()
     header_yay.update({'Cookie':cookie})
     while True:#make sure session is correct. this loop will run at most twice times
         h.request('{0}hub.jsp'.format(bksjw),headers=header_yay)
@@ -78,12 +84,12 @@ def auth(uname, pwd):
         try:
             print(re.findall('欢迎 (.+) 登录',ct)[0].decode('utf-8'))
         except IndexError:#expired
-            cookie=new_login(uname, pwd)
+            cookie=new_login()
             header_yay.update({'Cookie':cookie})
         else:
             break
 
-#if __name__=='__main__':
-#    auth()
+if __name__=='__main__':
+   auth()
 #till now we can use header_yay to do anything
 

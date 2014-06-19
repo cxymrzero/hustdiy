@@ -1,96 +1,320 @@
-$def with (eat, major)
-
 <!doctype html>
-<html>
+<html xmlns:wb=“http://open.weibo.com/wb”>
 <head>
 	<meta charset="utf-8">
 	<title>结果页面</title>
 	<link rel="stylesheet" href="static/css/last.css">
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="wrapper">
-			<h1><span id="user-name">陈希</span>同鞋的毕业症</h1>
+			<h1><span id="user-name">{{ name }}</span>同鞋的毕业症</h1>
 			<div class="img-wr">
 				<img src="static/image/case.png" alt="陈希" class="appearance">
+				<div class="descriptions" id="major">
+					<img src="static/image/titles/major-title.png" alt="专业" class="titles">
+					<div class="content">
+						<div class="word">
+							{% if major == '经济学院'%}
+							数钱数到手软了啦
+							{% elif major == '社会学系' %}
+							居委会大妈不跳广场舞
+							{% elif major == '人文学院' %}
+							茴香豆里的茴，有四种写法哦
+							{% elif major == '法学院' %}
+							你所说的一切都将成为呈堂证供
+							{% elif major == '公共管理学院' %}
+							你们都要听我的
+							{% elif major == '外国语学院' %}
+							INTERNATIONAL KING/QUEEN
+							{% elif major == '新闻与信息传播学院' %}
+							中央电视台！中央电视台！
+							{% elif major == '数学与统计学院' %}
+							好想得诺贝尔奖
+							{% elif major == '物理学院' %}
+							an apple a  day keep a docter away
+							{% elif major == '化学与化工学院' %}
+							绝命毒师
+							{% elif major == '生命科学与技术学院' %}
+							H7N9疫苗研制方
+							{% elif major == '机械科学与工程学院' %}
+							你以为在机械呆了四年，我还喜欢女生吗
+							{% elif major == '材料科学与工程学院' %}
+							我学材料我骄傲，我用塑料【哔——】
+							{% elif major == '能源与动力工程学院' %}
+							烧！烧！烧！我燃起来了！！
+							{% elif major == '电气与电子工程学院' %}
+							我是要成为国家电王的人
+							{% elif major == '水电与数字化工程学院' %}
+							三峡大爸
+							{% elif major == '计算机科学与技术学院' %}
+							每天敲代码头发会不会掉光啊
+							{% elif major == '光学与电子信息学院' %}
+							激光剑设计师
+							{% elif major == '自动化学院' %}
+							我们的恋爱率全校最高
+							{% elif major == '电子与信息工程系' %}
+							砸雷锋的电线不是我架的
+							{% elif major == '软件学院' %}
+							其实我不软也不贱
+							{% elif major == '建筑与城市规划学院' %}
+							搬砖！搬砖！
+							{% elif major == '环境科学与工程学院' %}
+							专业扫地三十年
+							{% elif major == '土木科学与工程学院' %}
+							其实我不土也不木
+							{% elif major == '船舶与海洋工程学院' %}
+							妹妹你坐船头哦~
+							{% elif major == '管理学院' %}
+							出任CEO，迎娶白富美，走上人生巅峰
+							{% elif major == '公共卫生学院' %}
+							喂！不要随地吐痰！
+							{% elif major == '临床学院' %}
+							play with knife
+							{% elif major == '基础医学院' %}
+							你想变成植物人吗
+							{% elif major == '法医学系' %}
+							我看过柯南七百多集，知道六百多种杀人方法哟
+							{% elif major == '护理学系' %}
+							我的针头已经饥渴难耐了！
+							{% elif major == '药学院' %}
+							我们是做毓婷的
+							{% elif major == '医药卫生管理学院' %}
+							洗澡搓出来的澡泥丸可包治百病
+							{% endif %}
+						</div>
+					</div>
+				</div>
 				<div class="descriptions" id="study-lord">
 					<img src="static/image/titles/study-lord-title.png" alt="学霸宣言" class="titles">
 					<div class="content">
-						<div class="word">师傅</div>
+						<div class="word">
+							{% if grades == 1 %}
+                            考试还用得着复习？
+                            {% elif grades == 2 %}
+                            我的对象是图书馆
+                            {% elif grades == 3 %}
+                            其实我从来不上课的
+                            {% elif grades == 4 %}
+                            我的体育课有90分呢
+                            {% elif grades == 5 %}
+                            我志在创业！
+                            {% endif %}
+						</div>
 						<div class="stars"></div>
 					</div>
 				</div>
 				<div class="descriptions" id="love">
 					<img src="static/image/titles/love-title.png" alt="桃花指数" class="titles">
 					<div class="content">
-						<div class="word">$eat</div>
-						<div class="stars"><!--
-							<span class="star solid"></span>
+						<div class="word">
+							{% if love == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif love == 2 %}
+                            我是痴情种子
+                            {% elif love == 3 %}
+                            认识你真是太好了
+                            {% elif love == 4 %}
+                            一年一个正正好
+                            {% elif love == 5 %}
+                            亲爱的，我最爱的还是你，真的
+                            {% endif %}
+						</div>
+						<div class="stars">
+							{% for i in range(love) %}
+							    <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-love) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
 							<span class="star solid"></span>
 							<span class="star"></span>
 							<span class="star"></span>
-							<span class="star"></span> 
-							-->
-							$for i in range(int(eat)):
-								<span class="star solid"></span>
-							$for i in range(5-int(eat)):
-								<span class="star"></span>
+							<span class="star"></span> -->
 						</div>
 					</div>
 				</div>
 				<div class="descriptions" id="sociaty">
 					<img src="static/image/titles/sociaty-title.png" alt="社交指数" class="titles">
 					<div class="content">
-						<div class="word">阿斯顿飞就</div>
+						<div class="word">
+							{% if org == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif org == 2 %}
+                            我就是这样的专一
+                            {% elif org == 3 %}
+                            学习生活两不误~
+                            {% elif org == 4 %}
+                            我简直是社交小王子呢
+                            {% elif org == 5 %}
+                            我的朋友遍天下
+                            {% endif %}
+						</div>
 						<div class="stars">
+							{% for i in range(org) %}
+							    <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-org) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
 							<span class="star solid"></span>
-							<span class="star solid"></span>
 							<span class="star"></span>
 							<span class="star"></span>
-							<span class="star"></span>
+							<span class="star"></span> -->
 						</div>
 					</div>
 				</div>
 				<div class="descriptions" id="eater">
 					<img src="static/image/titles/eater-title.png" alt="吃货指数" class="titles">
 					<div class="content">
-						<div class="word">撒旦法理解</div>
+						<div class="word">
+							{% if eat == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif eat == 2 %}
+                            口腹之欲乃身外之物
+                            {% elif eat == 3 %}
+                            来华科不算亏啦！
+                            {% elif eat == 4 %}
+                            吃出一片新天地
+                            {% elif eat == 5 %}
+                            你真的只读了4年大学吗！
+                            {% endif %}
+						</div>
 						<div class="stars">
+							{% for i in range(eat) %}
+                                <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-eat) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
 							<span class="star solid"></span>
-							<span class="star solid"></span>
 							<span class="star"></span>
 							<span class="star"></span>
-							<span class="star"></span>
+							<span class="star"></span> -->
 						</div>
 					</div>
 				</div>
 				<div class="descriptions" id="international">
 					<img src="static/image/titles/international-title.png" alt="英特奶神脑指数" class="titles">
 					<div class="content">
-						<div class="word">阿斯顿飞就阿斯顿</div>
+						<div class="word">
+							{% if cet == 1 %}
+                            
+                            {% elif cet == 2 %}
+                            口腹之欲乃身外之物
+                            {% elif cet == 3 %}
+                            来华科不算亏啦！
+                            {% elif cet == 4 %}
+                            吃出一片新天地
+                            {% elif cet == 5 %}
+                            你真的只读了4年大学吗！
+                            {% endif %}
+						</div>
 						<div class="stars">
+							{% for i in range(cet) %}
+                                <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-cet) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
 							<span class="star solid"></span>
-							<span class="star solid"></span>
 							<span class="star"></span>
 							<span class="star"></span>
-							<span class="star"></span>
+							<span class="star"></span> -->
 						</div>
 					</div>
 				</div>
 				<div class="descriptions" id="from">
 					<img src="static/image/titles/from-title.png" alt="英雄出处" class="titles">
 					<div class="content">
-						<div class="word">撒的发哪里是大家</div>
+						<div class="word">
+							{% if live == 1 %}
+                            我在韵苑，我不是亲生的T^T
+                            {% elif live == 2 %}
+                            我在沁苑，我活在神秘的国土
+                            {% elif live == 3 %}
+                            我在紫菘，平时西一周末百景
+                            {% elif live == 4 %}
+                            我在同济，活在刀光剑影之中
+                            {% endif %}
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="share-wr">
 				<span>分享到：</span>
-				<a href="javascript:void(0);" class="icons">新浪</a>
-				<a href="javascript:void(0);" class="icons">空间</a>
-				<a href="javascript:void(0);" class="icons">人人</a>
-				<a href="javascript:void(0);" class="icons">微信</a>
-				<a href="javascript:void(0);" class="icons">生成图片</a>
+				<ul class="share-list">
+					<li>
+						<a href="javascript:void(0);" class="icons">新浪<wb:share-button id="sina-share" addition="simple" type="icon" ralateUid="2988399333"></wb:share-button></a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="icons">空间</a>
+						<div id="zone-widget"><script type="text/javascript">
+						(function(){
+						var p = {
+						url:location.href,
+						showcount:'1',/*是否显示分享总数,显示：'1'，不显示：'0' */
+						desc:'毕业症',/*默认分享理由(可选)*/
+						summary:'',/*分享摘要(可选)*/
+						title:'',/*分享标题(可选)*/
+						site:'',/*分享来源 如：腾讯网(可选)*/
+						pics:'', /*分享图片的路径(可选)*/
+						style:'201',
+						width:113,
+						height:39
+						};
+						var s = [];
+						for(var i in p){
+						s.push(i + '=' + encodeURIComponent(p[i]||''));
+						}
+						document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享</a>'].join(''));
+						})();
+						</script>
+						<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script></div>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="icons">人人</a>
+						<div id="renren-share">
+							<script type="text/javascript" src="http://widget.renren.com/js/rrshare.js"></script>
+							<a name="xn_share" onclick="shareClick()" type="icon_large" href="javascript:;"></a>
+							<script type="text/javascript">
+								function shareClick() {
+									var rrShareParam = {
+										resourceUrl : '',	//分享的资源Url
+										srcUrl : '',	//分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
+										pic : '',		//分享的主题图片Url
+										title : '',		//分享的标题
+										description : ''	//分享的详细描述
+									};
+									rrShareOnclick(rrShareParam);
+								}
+							</script>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="icons">微信</a>
+						<div class="weixiin-share">
+							<!-- JiaThis Button BEGIN -->
+							<div id="ckepop">
+							<span class="jiathis_txt">分享到：</span>
+							<a class="jiathis_button_weixin">微信</a> 
+							<a href="http://www.jiathis.com/share"  class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+							<a class="jiathis_counter_style"></a>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+							</div> 
+							<!-- JiaThis Button END -->
+						</div>
+					</li>
+					<li>
+						<!-- <a href="javascript:void(0);" class="icons">生成图片</a> -->
+						<a href="/finalPic" class="icons" method="get">生成图片</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

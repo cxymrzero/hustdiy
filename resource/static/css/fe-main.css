@@ -1,3 +1,11 @@
+img.flesh-img {
+	-webkit-transform: translateY(22px);
+	-moz-transform: translateY(22px);
+	-ms-transform: translateY(22px);
+	-o-transform: translateY(22px);
+	transform: translateY(22px);
+}
+
 .face {
 	width: 57px;
 	margin-top: -234px;
@@ -20,6 +28,13 @@
 }
 
 .prop {
-	margin-top: 8px;
+	margin-top: -2px;
 }
 
+.female .panel.prop {
+	margin-top: -30px;
+}
+
+.bag, .bag-belt {
+	margin-top: -170px;
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>结果页面</title>
+	<link rel="stylesheet" href="static/css/last.css">
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<h1><span id="user-name">
+                {% if major == '计算机科学与技术学院' %}
+                每天敲代码头发会不会掉光啊
+                {% endif %}
+            </span>同鞋的毕业症</h1>
+			<div class="img-wr">
+				<img src="static/image/case.png" alt="陈希" class="appearance">
+				<div class="descriptions" id="study-lord">
+					<img src="static/image/titles/study-lord-title.png" alt="学霸宣言" class="titles">
+					<div class="content">
+						<div class="word">
+                            {% if grades == 1 %}
+                            考试还用得着复习？
+                            {% elif grades == 2 %}
+                            我的对象是图书馆
+                            {% elif grades == 3 %}
+                            其实我从来不上课的
+                            {% elif grades == 4 %}
+                            我的体育课有90分呢
+                            {% elif grades == 5 %}
+                            我志在创业！
+                            {% endif %}
+                        </div>
+						<div class="stars"></div>
+					</div>
+				</div>
+				<div class="descriptions" id="love">
+					<img src="static/image/titles/love-title.png" alt="桃花指数" class="titles">
+					<div class="content">
+						<div class="word">
+                            {% if love == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif love == 2 %}
+                            我是痴情种子
+                            {% elif love == 3 %}
+                            认识你真是太好了
+                            {% elif love == 4 %}
+                            一年一个正正好
+                            {% elif love == 5 %}
+                            亲爱的，我最爱的还是你，真的
+                            {% endif %}
+                        </div>
+						<div class="stars">
+                            {% for i in range(love) %}
+							    <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-love) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							--> 
+						</div>
+					</div>
+				</div>
+				<div class="descriptions" id="sociaty">
+					<img src="static/image/titles/sociaty-title.png" alt="社交指数" class="titles">
+					<div class="content">
+						<div class="word">
+                            {% if org == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif org == 2 %}
+                            我就是这样的专一
+                            {% elif org == 3 %}
+                            学习生活两不误~
+                            {% elif org == 4 %}
+                            我简直是社交小王子呢
+                            {% elif org == 5 %}
+                            我的朋友遍天下
+                            {% endif %}
+                        </div>
+						<div class="stars">
+                            {% for i in range(org) %}
+                                <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-org) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
+							<span class="star solid"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span> -->
+						</div>
+					</div>
+				</div>
+				<div class="descriptions" id="eater">
+					<img src="static/image/titles/eater-title.png" alt="吃货指数" class="titles">
+					<div class="content">
+						<div class="word">
+                            {% if eat == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif eat == 2 %}
+                            口腹之欲乃身外之物
+                            {% elif eat == 3 %}
+                            来华科不算亏啦！
+                            {% elif eat == 4 %}
+                            吃出一片新天地
+                            {% elif eat == 5 %}
+                            你真的只读了4年大学吗！
+                            {% endif %}
+                        </div>
+						<div class="stars">
+                            {% for i in range(eat) %}
+                                <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-eat) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
+							<span class="star solid"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span> -->
+						</div>
+					</div>
+				</div>
+				<div class="descriptions" id="international">
+					<img src="static/image/titles/international-title.png" alt="英特奶神脑指数" class="titles">
+					<div class="content">
+						<div class="word">
+                            {% if cet == 1 %}
+                            学生的重点是学习好吗！！
+                            {% elif cet == 2 %}
+                            口腹之欲乃身外之物
+                            {% elif cet == 3 %}
+                            来华科不算亏啦！
+                            {% elif cet == 4 %}
+                            吃出一片新天地
+                            {% elif cet == 5 %}
+                            你真的只读了4年大学吗！
+                            {% endif %}
+                        </div>
+						<div class="stars">
+                            {% for i in range(cet) %}
+                                <span class="star solid"></span>
+                            {% endfor %}
+                            {% for i in range(5-cet) %}
+                                <span class="star"></span>
+                            {% endfor %}
+							<!-- <span class="star solid"></span>
+							<span class="star solid"></span>
+							<span class="star"></span>
+							<span class="star"></span>
+							<span class="star"></span> -->
+						</div>
+					</div>
+				</div>
+				<div class="descriptions" id="from">
+					<img src="static/image/titles/from-title.png" alt="英雄出处" class="titles">
+					<div class="content">
+						<div class="word">
+                            {% if live == 1 %}
+                            我在韵苑，我不是亲生的T^T
+                            {% elif live == 2 %}
+                            我在沁苑，我活在神秘的国土
+                            {% elif live == 3 %}
+                            我在紫菘，平时西一周末百景
+                            {% elif live == 4 %}
+                            我在同济，活在刀光剑影之中
+                            {% endif %}
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div class="share-wr">
+				<span>分享到：</span>
+				<a href="javascript:void(0);" class="icons">新浪</a>
+				<a href="javascript:void(0);" class="icons">空间</a>
+				<a href="javascript:void(0);" class="icons">人人</a>
+				<a href="javascript:void(0);" class="icons">微信</a>
+				<a href="javascript:void(0);" class="icons">生成图片</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -75,15 +75,15 @@ html, body {
 .house {
 	position: absolute;
 	right: 50px;
-	bottom: 13%;
+	bottom: 75px;
 	width: 41.4%;
 }
 
 .trees {
 	position: absolute;
 	left: -2%;
-	bottom: 0;
-	width: 104%;
+	bottom: -10px;
+	width: 105%;
 	-webkit-animation: wind 6s linear infinite;
 	-moz-animation: wind 6s linear infinite;
 	-ms-animation: wind 6s linear infinite;

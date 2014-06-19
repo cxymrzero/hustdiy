@@ -59,7 +59,6 @@
 
 	// };
 
-
 	var appear = {
 		face: {
 			el: $(".face"),
@@ -105,7 +104,28 @@
 			lastSelect = $("img[data-color='" + appear[ty].nowSrc +"']");
 		}
 		if(src != appear[ty].nowSrc) {
-			if(ty != "bg") {
+			if(appear[ty].nowSrc.indexOf("prop-5") > -1) {
+				$(".bag").attr("src", "");
+				$(".bag-belt").attr("src", "");
+			} else if(appear[ty].nowSrc.indexOf("prop-4") > -1) {
+				appear[ty].el.removeClass("panel");
+				appear[ty].el.attr("src", "");
+			} else if(appear[ty].nowSrc.indexOf("prop-2") > -1) {
+				appear[ty].el.removeClass("basketball");
+				appear[ty].el.attr("src", "");
+			} else {
+				appear[ty].el.attr("src", "");
+			}
+			if(ty == "prop" && src.indexOf("prop-5") > -1) {
+				$(".bag").attr("src", "static/image/bag.png");
+				$(".bag-belt").attr("src", "static/image/bag-belt.png");
+			} else if(ty == "prop" && src.indexOf("prop-4") > -1) {
+				appear[ty].el.addClass("panel");
+				appear[ty].el.attr("src", src.replace("/block-icons", ""));
+			} else if(ty == "prop" && src.indexOf("prop-2") > -1) {
+				appear[ty].el.addClass("basketball");
+				appear[ty].el.attr("src", src.replace("/block-icons", ""));
+			} else if(ty != "bg") {
 				appear[ty].el.attr("src", src.replace("/block-icons", ""));
 			} else {
 				appear[ty].el.css("background-color", src);
@@ -116,6 +136,14 @@
 		} else {
 			if(ty != "bg") {
 				lastSelect && lastSelect.parent().removeClass("selected");
+				if(ty == "prop" && src.indexOf("prop-5") > -1) {
+					$(".bag").attr("src", "");
+					$(".bag-belt").attr("src", "");
+				} else if(ty == "prop" && src.indexOf("prop-4") > -1) {
+					appear[ty].el.removeClass("panel");
+				} else if(ty == "prop" && src.indexOf("prop-2") > -1) {
+					appear[ty].el.removeClass("basketball");
+				}
 				appear[ty].el.attr("src" , "");
 				appear[ty].nowSrc = "-";
 			}
@@ -158,9 +186,13 @@
 
 	$(".ok-button").click(function(e) {
 		e.preventDefault();
-		var names = ["hair","face","glass","suit","shoes","prop","bg"];
+		var names = ["bag", "hair", "face", "glass", "suit", "shoes", "prop", "bg", "bag-belt"];
 		$(names).each(function(index, name) {
-			$("#_" + name).val(appear[name].nowSrc);
+			if(name == "bag" || name == "bag-belt") {
+				$("#_" + name).val($("#" + name).attr("src"));
+			} else {
+				$("#_" + name).val(appear[name].nowSrc);
+			}
 		});
 		$("#ok-form").submit();
 	});

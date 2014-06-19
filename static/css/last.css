@@ -1,4 +1,4 @@
-html, body, img, h1 {
+html, body, img, h1, ul, li {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -11,7 +11,9 @@ html, body {
 }
 
 .container {
+	position: relative;
 	width: 100%;
+	min-height: 100%;
 	background-color: #afb263;
 	font-family: "Microsoft JhengHei, Microsoft Yahei";
 }
@@ -22,9 +24,9 @@ html, body {
 	margin: 0 auto;
 	padding: 20px;
 	background-color: #DDE186;
-	-webkit-box-shadow: 0 0 100px #777;
-	-moz-box-shadow: 0 0 100px #777;
-	box-shadow: 0 0 100px #777;
+	-webkit-box-shadow: 0 0 100px rgba(150, 150, 150, 0.5);
+	-moz-box-shadow: 0 0 100px rgba(150, 150, 150, 0.5);
+	box-shadow: 0 0 100px rgba(150, 150, 150, 0.5);
 	overflow: hidden;
 }
 
@@ -116,6 +118,10 @@ h1 span {
 	color: #FFFFFF;
 }
 
+#major .content {
+	margin-left: 110px;
+}
+
 #study-lord .content {
 	margin-left: 136px;
 }
@@ -132,19 +138,24 @@ h1 span {
 	margin-top: -30px;
 }
 
+#major {
+	margin-left: 75px;
+	margin-top: -300px;
+}
+
 #study-lord {
-	margin-left: 45px;
-	margin-top: -260px;
+	margin-left: 75px;
+	margin-top: -170px;
 }
 
 #love {
-	margin-left: 70px;
-	margin-top: -125px;
+	margin-left: 80px;
+	margin-top: -50px;
 }
 
 #sociaty {
 	margin-left: 65px;
-	margin-top: 57px;
+	margin-top: 150px;
 }
 
 #eater {
@@ -190,49 +201,82 @@ h1 span {
 	background-image: url("../image/share-icon.png");
 	margin: 0 2px;
 	vertical-align: bottom;
+	overflow: hidden;
 }
 
-.share-wr a:nth-of-type(1) {
+.share-list li:nth-of-type(1) a {
 	background-position: -10px -10px;
 }
 
-.share-wr a:nth-of-type(1):active {
+.share-list li:nth-of-type(1) a:active {
 	background-position: -10px -53px;
 }
 
-.share-wr a:nth-of-type(2) {
+.share-list li:nth-of-type(2) a {
 	background-position: -53px -10px;
 }
 
-.share-wr a:nth-of-type(2):active {
+.share-list li:nth-of-type(2) a:active {
 	background-position: -53px -53px;
 }
 
-.share-wr a:nth-of-type(3) {
+.share-list li:nth-of-type(3) a {
 	background-position: -96px -10px;
 }
 
-.share-wr a:nth-of-type(3):active {
+.share-list li:nth-of-type(3) a:active {
 	background-position: -96px -53px;
 }
 
-.share-wr a:nth-of-type(4) {
+.share-list li:nth-of-type(4) a {
 	background-position: -142px -10px;
 }
 
-.share-wr a:nth-of-type(4):active {
+.share-list li:nth-of-type(4) a:active {
 	background-position: -142px -53px;
 }
 
-.share-wr a:nth-of-type(5) {
+.share-list li:nth-of-type(5) a {
 	background-position: -187px -10px;
 }
 
-.share-wr a:nth-of-type(5):active {
+.share-list li:nth-of-type(5) a:active {
 	background-position: -187px -53px;
 }
 
+ul.share-list {
+	list-style: none;
+	display: inline-block;
+}
 
+ul.share-list li {
+	position: relative;
+	display: inline-block;
+}
+
+#sina-share {
+	width: 35px;
+	height: 35px;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	opacity: 0;
+}
+
+#sina-share iframe {
+	-webkit-transform: scale(3);
+	-moz-transform: scale(3);
+	-ms-transform: scale(3);
+	-o-transform: scale(3);
+	transform: scale(3);
+}
+ 
+#zone-widget, #renren-share, #ckepop {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
 
 
 

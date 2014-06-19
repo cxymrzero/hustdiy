@@ -10,12 +10,15 @@
 	<div class="container">
 		<div class="body-wr">
 			<div class="flesh female">
+				<img src="" alt="" class="bag">
+				<img src="static/image/female.png" alt="" class="flesh-img">
 				<img src="" alt="" class="face">
 				<img src="" alt="" class="hair">
 				<img src="" alt="" class="glass">
 				<img src="" alt="" class="suit">
 				<img src="" alt="" class="shoes">
 				<img src="" alt="" class="prop">
+				<img src="" alt="" class="bag-belt">
 			</div>
 		</div>
 		<div class="right-select-wr">
@@ -145,13 +148,15 @@
 			</div>
 		</div>
 	</div>
-	<form action="/getPic" id="ok-form" method="POST">
+	<form action="/submit" id="ok-form">
+		<input name="_bag" id="_bag" value="" type="hidden">
 		<input name="_hair" id="_hair" value="" type="hidden">
 		<input name="_face" id="_face" value="" type="hidden">
 		<input name="_glass" id="_glass" value="" type="hidden">
 		<input name="_suit" id="_suit" value="" type="hidden">
 		<input name="_shoes" id="_shoes" value="" type="hidden">
 		<input name="_prop" id="_prop" value="" type="hidden">
+		<input name="_bag-belt" id="_bag-belt" value="" type="hidden">
 		<input name="_bg" id="_bg" value="" type="hidden">
 	</form>
 	<script src="static/js/jquery.js"></script>
