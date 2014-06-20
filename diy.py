@@ -23,7 +23,8 @@ urls = (
     '/gender', 'gender',
     '/main', 'main',
     '/femain', 'femain',
-   '/getPic.*', 'getPic',
+   '/getMalePic', 'getMalePic',
+   '/getFePic', 'getFePic',
     '/last', 'last',
     '/finalPic', 'finalPic'
 )
@@ -208,7 +209,8 @@ def getSession():
     return session
 
 #bg: 500*680
-#flesh: 153*510
+#flesh-male: 153*570
+#flesh-female: 153*525
 
 def genBg(color):
     # color is a (x, y, z) RGB tuple.
@@ -257,9 +259,7 @@ def stickCloth(offsetX, offsetY, img, Bg, f2b):
     bg.paste(img, (offsetX, offsetY), mask=a)
     return bg
 
-def stickFlesh(Bg, Flesh):
-    offsetX = 173
-    offsetY = 85
+def stickFlesh(Bg, Flesh, offsetX, offsetY):
     bg = Bg
     flesh = Flesh
     r,g,b,a = flesh.split()
@@ -277,6 +277,14 @@ def stickBook(offsetX, offsetY, img, Bg, f2b):
 def stickBasketball(x, y, img, Bg, f2b):
     x = 76+x/2+f2b[0]-160
     y = 285+y+f2b[1]
+    r,g,b,a = img.split()
+    bg = Bg
+    bg.paste(img, (x, y), mask=a)
+    return bg
+
+def stickPanel(x, y, img, Bg, f2b):
+    x = 76+x/2+f2b[0]-30
+    y = 285+y+f2b[1]-10
     r,g,b,a = img.split()
     bg = Bg
     bg.paste(img, (x, y), mask=a)
@@ -376,13 +384,15 @@ class femain(AuthBase):
         # return render.last()
         return render.msg()
 
-class getPic:
+class getMalePic:
+# class getPic:
    def GET(self):
         f2b = (173, 85) #flesh to background
         i = web.input()
         # print 'bag:%s'%i._bag
         # print 'belt:%s'%i._bagbelt
         # print 'prop:%s'%i._prop
+        # print 'sex:%s'%i.sex
         bg = genBg(i._bg)
         try:
             if i._prop[-5] == '5': #It's a bag.
@@ -391,6 +401,10 @@ class getPic:
                 bg = stickBag(x, -152, bag, bg)
         except:
             pass
+        # if i.sex == '1':
+        #     flesh = openImg('static/image/male.png')
+        # else:
+        #     flesh = openImg('static/image/female.png')
         flesh = openImg('static/image/male.png')
         if i._hair != '-':
             hair = openImg(stripAddr(i._hair))
@@ -404,7 +418,7 @@ class getPic:
             glass = openImg(stripAddr(i._glass))
             x, y = getPicSize(glass)
             flesh = stickFace(x, -210, glass, flesh)
-        bg = stickFlesh(bg, flesh)
+        bg = stickFlesh(bg, flesh, 173, 85)
         if i._suit != '-':
             suit = openImg(stripAddr(i._suit))
             x, y = getPicSize(suit)
@@ -423,6 +437,10 @@ class getPic:
                 prop = openImg(stripAddr(i._prop))
                 x, y = getPicSize(prop)
                 bg = stickBasketball(x, 200, prop, bg, f2b)
+            elif num == 4:
+                prop = openImg(stripAddr(i._prop))
+                x, y = getPicSize(prop)
+                bg = stickPanel(x, -10, prop, bg, f2b)
 
         # if i._bag-belt != '-'
         try:
@@ -443,9 +461,112 @@ class getPic:
        # web.seeother('/', absolute=True)
         return 
    def POST(self):
-        return
+        raise web.seeother('/', absolute=True)
 
        #return render.msg()
+
+def stickFace2(x, y, img, Bg):
+    '''
+    stick hair, face, and glasses to bg.
+    '''
+    # offsetX = 76-offsetX/2
+    # offsetY = 285+offsetY
+    x = 250-x/2
+    y = 262+y+77
+    bg = Bg
+    r,g,b,a = img.split()
+    bg.paste(img, (x, y), mask=a)
+    return bg
+
+def stickCloth2(offsetX, offsetY, img, Bg, f2b):
+    '''
+    stick suit and shoes
+    '''
+    offsetX = 76-offsetX/2+f2b[0]
+    offsetY = 262+offsetY+f2b[1]
+    r,g,b,a = img.split()
+    bg = Bg
+    bg.paste(img, (offsetX, offsetY), mask=a)
+    return bg
+
+class getFePic:
+# class getPic:
+   def GET(self):
+        f2b = (173, 77) #flesh to background
+        i = web.input()
+        # print 'bag:%s'%i._bag
+        # print 'belt:%s'%i._bagbelt
+        # print 'prop:%s'%i._prop
+        # print 'sex:%s'%i.sex
+        bg = genBg(i._bg)
+        try:
+            if i._prop[-5] == '5': #It's a bag.
+                bag = openImg('static/image/bag.png')
+                x, y = getPicSize(bag)
+                bg = stickBag(x, -185, bag, bg)
+        except:
+            pass
+        # if i.sex == '1':
+        #     flesh = openImg('static/image/male.png')
+        # else:
+        #     flesh = openImg('static/image/female.png')
+        flesh = openImg('static/image/female.png')
+        bg = stickFlesh(bg, flesh, 173, 77)
+        if i._face != '-':
+            face = openImg(stripAddr(i._face))
+            x, y = getPicSize(face)
+            bg = stickFace2(x, -234, face, bg)
+        if i._glass != '-':
+            glass = openImg(stripAddr(i._glass))
+            x, y = getPicSize(glass)
+            bg = stickFace2(x, -223, glass, bg)
+        if i._hair != '-':
+            hair = openImg(stripAddr(i._hair))
+            x, y = getPicSize(hair)
+            bg = stickFace2(x, -275, hair, bg)
+        if i._suit != '-':
+            suit = openImg(stripAddr(i._suit))
+            x, y = getPicSize(suit)
+            bg = stickCloth2(x, -171, suit, bg, f2b)
+        if i._shoes != '-':
+            shoes = openImg(stripAddr(i._shoes))
+            x, y = getPicSize(shoes)
+            bg = stickCloth2(x, 230, shoes, bg, f2b)
+        if i._prop != '-':
+            num = int(i._prop[-5])
+            if num == 1 or num == 3:
+                prop = openImg(stripAddr(i._prop))
+                x, y = getPicSize(prop)
+                bg = stickBook(x, -3, prop, bg, f2b)
+            elif num == 2:
+                prop = openImg(stripAddr(i._prop))
+                x, y = getPicSize(prop)
+                bg = stickBasketball(x, 200-23, prop, bg, f2b)
+            elif num == 4:
+                prop = openImg(stripAddr(i._prop))
+                x, y = getPicSize(prop)
+                bg = stickPanel(x, -10-23, prop, bg, f2b)
+
+        # if i._bag-belt != '-'
+        try:
+            if i._prop[-5] == '5': #It's a bag.
+                belt = openImg('static/image/bag-belt.png')
+                x, y = getPicSize(belt)
+                bg = stickBag(x, -185, belt, bg)
+        except:
+            pass
+        try:
+            # flesh.save('img/testbg.png')
+            bg.save(session.uid.join(['img/', '.png']))
+        except:
+            os.mkdir('img')
+            # flesh.save('img/testbg.png')
+            bg.save(session.uid.join(['img/', '.png']))
+       # return self.POST()
+       # web.seeother('/', absolute=True)
+        return 
+   def POST(self):
+        raise web.seeother('/', absolute=True)
 
 class msg(AuthBase):
     def GET(self):
