@@ -4,11 +4,6 @@
 	<meta charset="utf-8">
 	<title>结果页面</title>
 	<link rel="stylesheet" href="static/css/last.css">
-	<style>
-	.wrapper {
-		background-color: {{ color }};
-	}
-	</style>
 	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
@@ -16,8 +11,7 @@
 		<div class="wrapper">
 			<h1><span id="user-name">{{ name }}</span>同鞋的毕业症</h1>
 			<div class="img-wr">
-				<!-- <img src="static/image/case.png" alt="陈希" class="appearance"> -->
-				<img src={{ imgUrl }} alt={{ name }} class="appearance">
+				<img src="static/image/case.png" alt="陈希" class="appearance">
 				<div class="descriptions" id="major">
 					<img src="static/image/titles/major-title.png" alt="专业" class="titles">
 					<div class="content">
@@ -208,10 +202,16 @@
 					<img src="static/image/titles/international-title.png" alt="英特奶神脑指数" class="titles">
 					<div class="content">
 						<div class="word">
-							{% if cet <= 2 %}
-                            四六级什么的过了就行
-                            {% else %}
-                            我永远也不会停止刷分的步伐
+							{% if cet == 1 %}
+                            
+                            {% elif cet == 2 %}
+                            口腹之欲乃身外之物
+                            {% elif cet == 3 %}
+                            来华科不算亏啦！
+                            {% elif cet == 4 %}
+                            吃出一片新天地
+                            {% elif cet == 5 %}
+                            你真的只读了4年大学吗！
                             {% endif %}
 						</div>
 						<div class="stars">

@@ -4,12 +4,19 @@
 	<meta charset="utf-8">
 	<title>请输入个人信息</title>
 	<link rel="stylesheet" href="static/css/msg.css">
+	<style>
+	#fail {
+		color: red
+	}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="wraper clearfix">
 			<div class="portrait">
-				<img src="static/image/case.png" alt="">
+				<!-- <img src="static/image/case.png" alt=""> -->
+				<img src={{ imgUrl }} alt="">
+				<!-- <img src="static/image/resize.png" alt=""> -->
 			</div>
 			<div class="form-wr">
 				<form action="/msg" method="POST" id="form" class="clear">
@@ -53,6 +60,11 @@
 								<label for=""><span class="value-option">&gt;5</span><input name="org" id="org" type="radio" value=5></label>
 							</div>
 						</div>
+						<p id='fail'>
+							{% if fail == True %}
+							还没填完呢，拿不到毕业症咯！
+							{% endif %}
+						</p>
 					</div>
 					<a href="javascript:form.submit();" class="submit">提交</a>
 				</form>

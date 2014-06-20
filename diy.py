@@ -40,7 +40,8 @@ app = web.application(urls, globals())
 #session = web.session.Session(app, web.session.DiskStore('sessions'), initializer={'uid':0})
 #session
 if web.config.get('_session') is None:
-    session = web.session.Session(app, web.session.DiskStore('sessions'), {'uid': 0})
+    session = web.session.Session(app, web.session.DiskStore('sessions'),\
+     {'uid': 0}, {'color':'#444444'}, {'imgUrl':0})
     web.config._session = session
 else:
     session = web.config._session
@@ -306,7 +307,7 @@ def stripAddr(addr):
 
 class index:
     def GET(self):
-        return render.index()
+        return render.index(fail = 0)
         # return render.last()  
     def POST(self):
         web.seeother('/', absolute=True)    
@@ -315,45 +316,48 @@ class login:
     def GET(self):
         web.seeother('/', absolute=True)
     def POST(self):
-        i = web.input()
-        auth(i.username, i.psw)
-        '''
         try:
+            i = web.input()
             auth(i.username, i.psw)
+            '''
+            try:
+                auth(i.username, i.psw)
+            except:
+                return render.index()
+            '''
+            s = requests.Session()
+            uid = i.username
+            #print session.uid
+            #session = getSession()
+            session.uid = uid
+            print "session.uid!?:{0}".format(session.uid)
+            print "{0}".format(web.config._session.uid)
+            cet = getCET(s, queryCET).encode('utf-8')
+            paras = getScoreParas(s, queryReadyScore, header_yay)
+            score = getScore(s, queryScore, header_yay, paras)
+            if score > u'88':
+                score = 1
+            elif score > u'84':
+                score = 2
+            elif score > u'80':
+                score = 3
+            elif score > u'70':
+                score = 4
+            else:
+                score = 5
+            major = getMajor(s, queryHub).encode('utf-8')
+            name = getName(s, queryHub, header_yay).encode('utf-8')
+            myvar = dict(uid = uid)
+            results = db.select('stu_info_1', myvar, where="id=$uid")
+            if not results:
+                db.insert('stu_info_1', id=uid, major=major, grades=score, cet=cet, name=name)
+            # print cet
+            # print score
+            # print major
+            # print name
+            raise web.seeother('/gender')
         except:
-            return render.index()
-        '''
-        s = requests.Session()
-        uid = i.username
-        #print session.uid
-        #session = getSession()
-        session.uid = uid
-        print "session.uid!?:{0}".format(session.uid)
-        print "{0}".format(web.config._session.uid)
-        cet = getCET(s, queryCET).encode('utf-8')
-        paras = getScoreParas(s, queryReadyScore, header_yay)
-        score = getScore(s, queryScore, header_yay, paras)
-        if score > u'88':
-            score = 1
-        elif score > u'84':
-            score = 2
-        elif score > u'80':
-            score = 3
-        elif score > u'70':
-            score = 4
-        else:
-            score = 5
-        major = getMajor(s, queryHub).encode('utf-8')
-        name = getName(s, queryHub, header_yay).encode('utf-8')
-        myvar = dict(uid = uid)
-        results = db.select('stu_info_1', myvar, where="id=$uid")
-        if not results:
-            db.insert('stu_info_1', id=uid, major=major, grades=score, cet=cet, name=name)
-        print cet
-        print score
-        print major
-        print name
-        raise web.seeother('/gender')
+            return render.index(fail = 1)
 
 # configure user login
 class AuthBase:
@@ -393,6 +397,8 @@ class getMalePic:
         # print 'belt:%s'%i._bagbelt
         # print 'prop:%s'%i._prop
         # print 'sex:%s'%i.sex
+        # print i._bg
+        session.color = i._bg
         bg = genBg(i._bg)
         try:
             if i._prop[-5] == '5': #It's a bag.
@@ -450,16 +456,21 @@ class getMalePic:
                 bg = stickBag(x, -152, belt, bg)
         except:
             pass
+        imgUrl = session.uid.join(['static/userimg/', '.png'])
+        session.imgUrl = imgUrl
+        bg = bg.crop((0, 100, 500, 680))
         try:
             # flesh.save('img/testbg.png')
-            bg.save(session.uid.join(['img/', '.png']))
+            # bg.save(session.uid.join(['img/', '.png']))
+            bg.save(imgUrl)
         except:
-            os.mkdir('img')
+            os.mkdir('static/userimg')
             # flesh.save('img/testbg.png')
-            bg.save(session.uid.join(['img/', '.png']))
+            # bg.save(session.uid.join(['img/', '.png']))
+            bg.save(imgUrl)
        # return self.POST()
        # web.seeother('/', absolute=True)
-        return 
+        return render.msg(imgUrl=imgUrl)
    def POST(self):
         raise web.seeother('/', absolute=True)
 
@@ -499,6 +510,7 @@ class getFePic:
         # print 'prop:%s'%i._prop
         # print 'sex:%s'%i.sex
         bg = genBg(i._bg)
+        session.color = i._bg
         try:
             if i._prop[-5] == '5': #It's a bag.
                 bag = openImg('static/image/bag.png')
@@ -555,16 +567,18 @@ class getFePic:
                 bg = stickBag(x, -185, belt, bg)
         except:
             pass
+        # imgUrl = session.uid.join(['img/', '.png'])
+        bg = bg.crop((0, 50, 500, 630))
+        imgUrl = session.uid.join(['static/userimg/', '.png'])
+        session.imgUrl = imgUrl
         try:
             # flesh.save('img/testbg.png')
-            bg.save(session.uid.join(['img/', '.png']))
+            bg.save(imgUrl)
         except:
-            os.mkdir('img')
+            os.mkdir('static/userimg')
             # flesh.save('img/testbg.png')
-            bg.save(session.uid.join(['img/', '.png']))
-       # return self.POST()
-       # web.seeother('/', absolute=True)
-        return 
+            bg.save(imgUrl)
+        return render.msg(imgUrl=imgUrl, fail=0)
    def POST(self):
         raise web.seeother('/', absolute=True)
 
@@ -574,9 +588,13 @@ class msg(AuthBase):
         # return render.index()
     def POST(self):
         i = web.input()
-        print i.place
-        print i.cantin
-        print i.love
+        try:
+            print i.place
+            print i.cantin
+            print i.love
+            print i.org
+        except:
+            return render.msg(imgUrl=session.imgUrl, fail=True)
 #        if session.get('uid') is not None:
 #            print session.uid
 #        else:
@@ -587,8 +605,9 @@ class msg(AuthBase):
         print session.uid
         myvar = dict(uid = session.uid)
         results = db.select('stu_info_2', myvar, where="id=$uid")
-        if not results:
-            db.insert('stu_info_2', id=session.uid, live=i.place, eat=i.cantin, love=i.love, org=i.org)
+        if results:
+            db.delete('stu_info_2', where="id=$uid", vars=myvar)
+        db.insert('stu_info_2', id=session.uid, live=i.place, eat=i.cantin, love=i.love, org=i.org)
         return web.seeother('/last')
 
 class last(AuthBase):
@@ -606,15 +625,20 @@ class last(AuthBase):
         eat = r2[0].eat
         love = r2[0].love
         org = r2[0].org
+        imgUrl = session.uid.join(['static/userimg/', '.png'])
         return render.last(major=major, grades=grades, cet=cet, \
-            live=live, eat=eat, love=love, org=org, name=name)
+            live=live, eat=eat, love=love, org=org, name=name, imgUrl=imgUrl, color=session.color)
     def POST(self):
         web.seeother('/', absolute=True)
 
-# class finalPic:
-#     def GET(self):
-#         proc = Popen(["phantomjs", "test.js"],stdout=PIPE, stderr=STDOUT)
-#         return
+class finalPic:
+    def GET(self):
+        filename = 'pic.png'
+        filepath = 'static/userimg/' + session.uid + '.png'
+        web.header("Content-Type","img/jpeg;charset=utf-8")
+        web.header("Content-Disposition","attachment;filename=%s"%filename)
+        f = open(filepath)
+        return f.read()
 
 if __name__ == '__main__':
     app.run()

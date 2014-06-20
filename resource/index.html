@@ -87,7 +87,15 @@
 				<span>密码</span>
 				<input id="psw" name="psw" type="password">
 			</label>
-			<p id="fail"></p>
+			<!-- <p>
+				{% if fail == False %}
+				我们在向hub系统提问，麻烦等一会～
+				{% endif %} -->
+			<p id="fail">
+				{% if fail == True %}
+				哇哦，确定是你的用户名和密码？
+				{% endif %}
+			</p>
 			<div id="form-buttons-wr" class="clearfix">
 				<a href="javascript: form.submit();" class="submit">登录</a>
 				<a href="javascript: form.reset();" class="reset">重置</a>

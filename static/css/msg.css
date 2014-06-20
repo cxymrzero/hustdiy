@@ -42,15 +42,23 @@ body {
 
 .portrait {
 	float: left;
-	width: 155px;
+	position: relative;
+	width: 255px;
 	height: 570px;
+}
+
+.portrait img {
+	width: 500px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -250px;
 }
 
 .form-wr {
 	float: left;
 	width: 725px;
 	height: 570px;
-	margin-left: 120px;
 }
 
 .form-wr:before, .form-wr:after {
