@@ -41,7 +41,7 @@ app = web.application(urls, globals())
 #session
 if web.config.get('_session') is None:
     session = web.session.Session(app, web.session.DiskStore('sessions'),\
-     {'uid': 0}, {'color':'#444444'}, {'imgUrl':0})
+     {'uid': 0, 'color':'#444444', 'imgUrl':0})
     web.config._session = session
 else:
     session = web.config._session
@@ -351,13 +351,14 @@ class login:
             results = db.select('stu_info_1', myvar, where="id=$uid")
             if not results:
                 db.insert('stu_info_1', id=uid, major=major, grades=score, cet=cet, name=name)
-            # print cet
-            # print score
-            # print major
-            # print name
-            raise web.seeother('/gender')
+                # print cet
+                # print score
+                # print major
+                # print name
+            #     raise web.seeother('/gender')
         except:
             return render.index(fail = 1)
+        raise web.seeother('/gender')
 
 # configure user login
 class AuthBase:
